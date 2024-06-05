@@ -1,0 +1,24 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/exchange_rates.css') }}">
+{% endblock %}
+<a href="{{ path('convert') }}">Converter</a>
+<div class="container">
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-1">Id</div>
+            <div class="col col-3">From</div>
+            <div class="col col-3">To</div>
+            <div class="col col-4">Rate</div>
+            <div class="col col-4">Date</div>
+        </li>
+        {% for currency in currencies %}
+            <li class="table-row">
+                <div class="col col-1">{{ currency.id }}</div>
+                <div class="col col-2">{{ currency.fromCurrency.name }}</div>
+                <div class="col col-3">{{ currency.toCurrency.name }}</div>
+                <div class="col col-4">{{ currency.rate }}</div>
+                <div class="col col-4">{{ currency.date|date('Y-m-d') }}</div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

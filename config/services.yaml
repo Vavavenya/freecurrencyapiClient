@@ -1,0 +1,22 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+    App\Service\Http\FreeCurrencyGuzzleClient:
+        arguments:
+            $apikey: '%env(FREECURRENCYAPI_APIKEY)%'
+    App\Service\Converter:
+        arguments:
+            $client: '@App\Service\Http\FreeCurrencyGuzzleClient'
+    App\Service\CurrencyRateFetcher: ~
+    App\Service\CurrencyUpdater: ~
+
