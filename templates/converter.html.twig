@@ -1,0 +1,20 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/converter.css') }}">
+{% endblock %}
+<a href="{{ path('currencies_list') }}">Currencies</a>
+{% block body %}
+    <h1>Currency Converter</h1>
+
+    {{ form_start(form, {'attr': {'class': 'form-converter'}}) }}
+    {{ form_row(form.amount) }}
+    {{ form_row(form.fromCurrency) }}
+    {{ form_row(form.toCurrency) }}
+    {{ form_end(form) }}
+
+    {% if result is defined %}
+        <div class="result">
+            <h2>Result:</h2>
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+{% endblock %}
