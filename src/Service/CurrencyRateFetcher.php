@@ -25,7 +25,7 @@ class CurrencyRateFetcher
         $this->allCurrency = $this->currencyRepository->findAll();
     }
 
-    public function updateCurrencyRate()
+    public function updateCurrencyRate(): bool
     {
         $currentDateTime = new \DateTime();
         if ($this->isUpdateNeeded($currentDateTime)) {
@@ -41,7 +41,11 @@ class CurrencyRateFetcher
                 }
             }
             $this->entityManager->flush();
+
+            return true;
         }
+
+        return false;
     }
 
     private function isUpdateNeeded(DateTime $currentDateTime): bool
