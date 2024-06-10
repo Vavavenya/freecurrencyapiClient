@@ -14,3 +14,18 @@ Any suitable framework can be used to implement the currency converter module.
 
 ![Image alt](https://github.com/Vavavenya/freecurrencyapiClient/blob/main/Converter.png)
 ![Image alt](https://github.com/Vavavenya/freecurrencyapiClient/blob/main/currencies.png)
+
+
+# CRON
+
+`php bin/console cron:create` - Create a new job
+
+`php bin/console cron:run` - Run cron daemon
+
+### Example
+![Image alt](https://github.com/Vavavenya/freecurrencyapiClient/blob/main/CreateCronJob.png)
+
+
+
+
+

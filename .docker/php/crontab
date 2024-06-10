@@ -1,0 +1,1 @@
+* * * * * /usr/local/bin/php /var/www/symfony/bin/console cron:run 1>> /var/log/cron.log 2>&1
